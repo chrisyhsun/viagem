@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test search results page</title>
+
+    <script type="text/javascript">
+        function onSubmit() {
+            document.getElementById('test').value = 'true';
+        }
+    </script>
+</head>
+<body>
+    <br>
+
+    <h6>themed travel spots</h6>
+
+    <br>
+    <br>
+
+    <center><form class="form-inline" role="form" action="/search">
+        <!-- contains either empty string or true depending on which button is pressed
+             is passed to the python through url -->
+        <input type='hidden' id='test' name='test'>
+
+        <input type="text" id="place" name="place" placeholder = 'Where are you going?' value='{{previous_place}}'>
+        <br>
+        <select name='theme'>
+                <option value='hipster'>Adventure Time</option>
+                <option value='family'>Family Friendly</option>
+                <option value='historic'>Historic</option>
+                <option value='music'>Musical</option>
+                <option value='random'>random</option>
+            </select>
+        <br>
+        <button type="submit" name='search'>Search</button>
+
+    </form></center>
+    <br>
+    <ul><h3>
+        {% for place in urldict %}
+            <li><a href='/place?url={{urldict[place]}}&name={{place}}&from=' id='results'>{{place}}</a></li>
+        {% endfor %}
+    </ul></h3>
+    <br>
+</body>
+</html>

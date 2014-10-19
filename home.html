@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>test home page</title>
+	</head>
+	<body>
+		<form action='/search'>
+			<input type = 'text' id='place' name='place' placeholder='Where are you going?'>
+			<br>
+            <select name='theme'>
+                <option value='hipster'>Adventure Time</option>
+                <option value='family'>Family Friendly</option>
+                <option value='historic'>Historic</option>
+                <option value='music'>Musical</option>
+                <option value='random'>random</option>
+            </select>
+            <br>
+			<button type = 'submit' name='search'>Search</button>
+            <p>{{response}}</p>
+		</form>
+	</body>
+</html>
